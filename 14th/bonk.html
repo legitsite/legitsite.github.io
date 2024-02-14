@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feliz 14 mi bonita</title>
+<style>
+.body1 {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/007/904/116/original/cute-animal-little-cat-seamless-pattern-wallpaper-with-design-light-pink-vector.jpg");
+  margin: 0;
+  padding: 0;
+}
+.v1 {
+  background-image: url("https://my3littlekittens.com/wp-content/uploads/2023/01/Valentine-Cat-5-1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 30vw; /* Altura relativa al ancho de la ventana */
+  width: 30vw; /* Anchura relativa al ancho de la ventana */
+  margin: 5vh auto 0 auto; /* Para centrar vertical y horizontalmente */
+}
+h1 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 3vw; /* Tamaño de fuente relativo al ancho de la ventana */
+  color: #e60073; /* Color rosa */
+  text-shadow: 0.2vw 0.2vw 0.2vw #ccc; /* Sombra de texto */
+}
+button {
+  display: inline-block;
+  margin: 2vh;
+  padding: 1vh 2vw;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5vw; /* Tamaño de fuente relativo al ancho de la ventana */
+  color: white;
+  background-color: #e60073; /* Color rosa */
+  border: none;
+  border-radius: 0.5vw; /* Bordes redondeados */
+  cursor: pointer;
+  text-shadow: 0.1vw 0.1vw 0.1vw #ccc; /* Sombra de texto */
+}
+button:hover {
+  background-color: #ff4d94; /* Color rosa claro al pasar el mouse */
+}
+.center {
+  text-align: center;
+}
+.hearts {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+</style>
+</head>
+<body class="body1">
+<div id="imagen" class="v1"></div>
+<h1 id="message">¿Quieres ser mi San Valentín?</h1>
+<div class="center">
+<button onclick="showHearts()">Si</button><button onmouseover="moveButton()">No</button>
+</div>
+
+<audio id="audio" style="display:none;">
+  <source src="1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+var frasesGraciosas = [
+  "Esa opción se fue de vacaciones:3",
+  "¡Esa opción está en una cita romántica, intenta con otra!",
+  "¿Esa no es una opción, pero qué tal un beso? :3",
+  "¿Por qué elegir una opción cuando puedes tener todo mi amor?",
+  "¡Error 404: corazón no encontrado! Pero te tengo a ti uwu",
+  "Esa opción está en una misión secreta, vuelve pronto.",
+  "Esa opción está reservada para nuestro amor, busca otra alternativa.",
+  "Esa opción está en la lista de regalos para ti, pero mientras tanto, elige otra.",
+  "Esa opción está en un viaje por el amor, intenta con algo más cercano.",
+  "Esa opción encontró al amor de su vida y se fue con él :3"
+];
+
+var index = 0;
+
+function showHearts() {
+  document.getElementById("message").innerText = "Gracias mi bonita, te quiero :3";
+  document.getElementById("imagen").style.backgroundImage = "url('https://media1.tenor.com/m/kaAIyBwxVtoAAAAC/hearts-butterfly.gif')";
+  document.getElementById("audio").play();
+}
+
+function moveButton() {
+  var button = document.querySelector("button:hover");
+  var randomX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+  var randomY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+  button.style.position = "absolute";
+  button.style.left = randomX + "px";
+  button.style.top = randomY + "px";
+  if (index < frasesGraciosas.length - 1) {
+    document.getElementById("message").innerText = frasesGraciosas[index];
+    index++;
+  } else {
+    document.getElementById("message").innerText = frasesGraciosas[index];
+    button.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
